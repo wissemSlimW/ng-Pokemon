@@ -1,44 +1,69 @@
 Project Setup
+
 This guide will walk you through setting up and running the project locally.
 
-Prerequisites
+**Prerequisites
+
 -Docker installed and running
+
 -Node.js installed
+
 -Angular CLI installed
 
 
-Database Setup
+**Database Setup
+
+
 The project uses PostgreSQL for the database. You can launch a PostgreSQL instance using Docker:
 
 -Pull and run the Docker image.
+
 -After the instance is running, configure the database connection string in the backend by editing back/config/db.ts.
 
-Backend Setup
+**Backend Setup
+
+
 To install and start the backend server:
 
 -Navigate to the back folder: 
+
   cd back
+  
 -Install the dependencies:
+
   npm install
+  
 -Start the backend server:
+
   npm start
   
 ===>The server will run on http://localhost:3000.
 
-Frontend Setup
+
+
+**Frontend Setup
+
+
 To install and start the frontend application:
 
 -Navigate to the frontend folder:
+
   cd frontend
+  
 -Install the dependencies:
+
   npm install
+  
 -Start the frontend server:
+
 ng serve -o
 
 ===>The application will open in your browser at http://localhost:4200.
 
 
 **Requirement 4 
+
+
 database schema basicly exsit inside the file "back/config/schema.sql.
 here is the setup
 
@@ -80,6 +105,8 @@ CREATE TABLE
 
 
 ** requirement 5
+
+
 PostgreSQL function that gets a list of all teams odered by team power (team power equal to the sum of all team members powers)
 
 ===>
