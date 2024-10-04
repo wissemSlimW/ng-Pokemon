@@ -57,7 +57,6 @@ export class BaseController<T extends BaseService<Db[keyof Db]>> {
   async delete(req: Request, res: Response) {
     try {
       const { id } = req.params;
-
       const data = await this.service.findOne(+id!);
       if (!data) {
         return res.status(404).json({ message: "No data found!" });

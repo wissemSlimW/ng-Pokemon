@@ -1,0 +1,7 @@
+.add-card {
+    width: 320px;
+    height: 450px;
+    max-height: 450px;
+    overflow: hidden;
+    cursor: pointer;
+  }

@@ -1,0 +1,97 @@
+<div class="dialog">
+  <form #form="ngForm" (ngSubmit)="form['valid'] && handleSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input
+        #name="ngModel"
+        name="name"
+        required
+        type="text"
+        class="form-control rounded-3"
+        aria-describedby="name"
+        [(ngModel)]="pokemon!.name"
+      />
+      @if( (name.dirty||form.submitted)&& name.errors?.["required"] ) {
+      <small class="text-danger">Invalid value</small>
+      }
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Image Url</label>
+      <input
+        #image="ngModel"
+        required
+        name="image"
+        [(ngModel)]="pokemon!.image"
+        type="text"
+        class="form-control rounded-3"
+        aria-describedby="imageUrl"
+      />
+      @if( (image.dirty||form.submitted)&&image.errors?.["required"] ) {
+      <small class="text-danger">Invalid value</small>
+      }
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Power</label>
+      <input
+        #power="ngModel"
+        name="power"
+        min="10"
+        max="100"
+        [(ngModel)]="pokemon!.power"
+        type="number"
+        class="form-control rounded-3"
+        aria-describedby="power"
+      />
+      @if( power.errors?.["min"]||power.errors?.["max"] ) {
+      <small class="text-danger">Invalid value</small>
+      }
+      <div id="emailHelp" class="form-text">
+        Provide avalue between 10 and 100.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Health points</label>
+      <input
+        #life="ngModel"
+        name="life"
+        min="50"
+        max="100"
+        [(ngModel)]="pokemon!.life"
+        type="number"
+        class="form-control rounded-3"
+        aria-describedby="life"
+      />
+      @if( life.errors?.["min"]||life.errors?.["max"] ) {
+      <small class="text-danger">Invalid value</small>
+      }
+      <div id="emailHelp" class="form-text">
+        Provide avalue between 50 and 100.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Type</label>
+      <select
+        #type="ngModel"
+        [(ngModel)]="pokemon!.type"
+        required
+        name="type"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        @for (type of pokemonTypes; track $index) {
+        <option value="{{ type.id }}">{{ type.name }}</option>
+        }
+      </select>
+      @if( (type.dirty||form.submitted)&& type.value===0 ) {
+      <small class="text-danger">Invalid value</small>
+      }
+    </div>
+
+    <div class="d-flex gap-3 justify-content-end">
+      <button type="button" class="btn btn-light" data-bs-dismiss="modal" (click)="handleClose()">
+        Close
+      </button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

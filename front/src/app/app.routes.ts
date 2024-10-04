@@ -2,18 +2,18 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '/',
+    path: '',
     loadChildren: () =>
-      import('./features/pokemons/pokemons.routes').then((m) => m.routes),
+      import('./features/pokemon/pokemon.routes').then((m) => m.routes),
   },
   {
-    path: '/teams',
+    path: 'teams',
     loadChildren: () =>
       import('./features/teams/teams.routes').then((m) => m.routes),
   },
 
   {
-    path: '/battle-portal',
+    path: 'battle-portal',
     loadChildren: () =>
       import('./features/battle-portal/battle-portal.routes').then(
         (m) => m.routes

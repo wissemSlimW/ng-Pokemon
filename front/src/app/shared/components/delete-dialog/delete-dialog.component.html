@@ -1,0 +1,20 @@
+<h1 class="modal-title fs-5" id="exampleModalLabel">Delete Operation</h1>
+<div class="modal-body py-4">
+  <span>
+    Would you like to delete this Item
+    <span class="fw-bold text-primary">{{ text }}</span></span
+  >
+</div>
+<div class="modal-footer d-flex gap-3">
+  <button
+    type="button"
+    class="btn btn-light"
+    data-bs-dismiss="modal"
+    (click)="closeModal()"
+  >
+    Close
+  </button>
+  <button type="button" class="btn btn-primary" (click)="handleDelete()">
+    Save changes
+  </button>
+</div>

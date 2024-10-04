@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center py-5">
+  <h1 class="h1">Select Your Teams</h1>
+</div>
+<div class="d-flex gap-5 justify-content-center">
+  <div class="list-group card rounded-4 d-flex flex-column gap-2 p-3">
+    @for (team of teams; track $index) {
+    <div
+      class="list-group-item list-group-item-action d-flex p-3 rounded-4 menu-item w-100 gap-2"
+      [class.active]="team.id === firstTeamId"
+      (click)="selectFirst(team.id!)"
+    >
+      <span class="badge bg-light fs-3 text-warning rounded-4">{{
+        getTeamPower(team)
+      }}</span>
+      <span class="fs-4">{{ team.name }}</span>
+    </div>
+    }
+  </div>
+  <div class="list-group card rounded-4 d-flex flex-column gap-2 p-3">
+    @for (team of teams; track $index) {
+    <div
+      class="list-group-item list-group-item-action d-flex p-3 rounded-4 menu-item w-100 gap-2 bg-hover-primary"
+      [class.active]="team.id === secondTeamId"
+      (click)="selectSecond(team.id!)"
+    >
+      <span class="badge bg-light fs-3 text-warning rounded-4">{{
+        getTeamPower(team)
+      }}</span>
+      <span class="fs-4">{{ team.name }}</span>
+    </div>
+    }
+  </div>
+</div>
+<div class="d-flex justify-content-center py-4">
+  <button class="btn btn-primary fs-4 rounded-4" (click)="handleStart()">
+    Start Battle
+  </button>
+</div>

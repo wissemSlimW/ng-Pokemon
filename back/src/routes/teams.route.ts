@@ -12,7 +12,6 @@ teamRoutes.get("/", (req: Request, res: Response) => {
   controller.findAll(req, res);
 });
 teamRoutes.post("/", (req: Request, res: Response) => {
-  console.log({ req });
   controller.create(req, res);
 });
 teamRoutes.put("/:id", (req: Request, res: Response) => {

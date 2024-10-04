@@ -2,12 +2,18 @@ import { poolQuery } from "../config/db";
 import { PokemonTeam } from "../models/pokemonTeam";
 import { Team } from "../models/team";
 import {
-    createInsertManyQuery,
-    deleteManyQuery,
+  createInsertManyQuery,
+  deleteManyQuery,
 } from "../utils/createInsertManyquery";
 import { BaseService } from "./base.service";
 
 export class TeamService extends BaseService<Team> {
+  async findAll(): Promise<Team[]> {
+    const result = await poolQuery(
+      "SELECT t.id AS id, t.name AS name,json_agg( json_build_object( 'id', p.id,'name', p.name,'image', p.image,'type', p.type,'power', p.power,'life', p.life)) AS pokemon FROM teams t LEFT JOIN pokemon_teams pt ON t.id = pt.team LEFT JOIN pokemon p ON pt.pokemon = p.id GROUP BY t.id, t.name;"
+    );
+    return result.rows;
+  }
   async create(data: Team) {
     const { pokemonIds, ..._data } = data;
     const team: Team = await super.create(_data);

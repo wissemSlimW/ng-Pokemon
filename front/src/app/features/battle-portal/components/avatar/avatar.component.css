@@ -1,0 +1,11 @@
+.avatar-container {
+  width: max(4vw, 60px);
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.deactivated {
+  filter: brightness(0.5) grayscale(0.2);
+}
+.outlined {
+  border: 5px solid;
+}

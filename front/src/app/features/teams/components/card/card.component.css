@@ -1,0 +1,16 @@
+.team-card {
+  width: 320px;
+  height: 450px;
+  max-height: 450px;
+  overflow: hidden;
+}
+.card-image {
+  object-fit: contain;
+  width: 320px;
+  overflow: hidden;
+  flex: 1;
+}
+.avatar {
+  width: 80px;
+  height: 80px;
+}

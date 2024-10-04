@@ -1,0 +1,23 @@
+.report-card {
+  width: max(80%, 300px);
+}
+.player-image {
+  width: 120px;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+.draw-image {
+  width: min(70vw, 400px);
+}
+
+.draw-animation {
+  transform: scale(2);
+  opacity: 0;
+  animation: draw 0.2s 0.5s linear forwards;
+}
+@keyframes draw {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

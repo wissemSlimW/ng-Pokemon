@@ -1,6 +1,20 @@
-<div class="bg-primary">
-  Hi
-  <button class="btn btn-warning"> Click</button>
+<div class="bg-light max-vw-100 d-flex flex-column min-vh-100 overflow-hidden">
+  <div class="bg-primary d-flex justify-content-center gap-3 navbar">
+    <a
+      [routerLink]="['/']"
+      class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fs-3"
+      >Home</a
+    >
+    <a
+      [routerLink]="['/teams']"
+      class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fs-3"
+      >Teams</a
+    >
+    <a
+      [routerLink]="['/battle-portal']"
+      class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fs-3"
+      >Battle Arena</a
+    >
+  </div>
+  <router-outlet class="overflow-hidden" />
 </div>
-
-<router-outlet />

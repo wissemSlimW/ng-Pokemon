@@ -1,11 +1,14 @@
 import express from "express";
 import { createDatabase } from "./config/db";
+import cors from "cors";
 import { pokemonRoutes } from "./routes/pokemon.route";
 import { pokemonTypeRoutes } from "./routes/pokemonType.route";
 import { teamRoutes } from "./routes/teams.route";
 import { weaknessRoutes } from "./routes/weakness.route";
 
 const app = express();
+app.use(cors());
+
 app.use(express.json());
 
 app.use("/pokemonTypes", pokemonTypeRoutes);

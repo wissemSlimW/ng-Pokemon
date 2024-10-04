@@ -1,0 +1,9 @@
+.pokemon-card-container {
+    width: max(250px, 30%);
+    overflow: hidden;
+  }
+  .vs-img {
+    width: 100px;
+    aspect-ratio: 1;
+  }
+  

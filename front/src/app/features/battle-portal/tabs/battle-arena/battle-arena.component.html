@@ -1,0 +1,61 @@
+<h1 class="h1 text-primary my-4 text-center">Battle Arena</h1>
+<span class="d-flex justify-content-center mt-1">
+  <h3 class="h3 text-light bg-dark d-flex rounded-5 px-3 py-1 text-center">
+    Round {{ round }}
+  </h3>
+</span>
+<div
+  class="flex-1 d-flex align-items-center max-w-100 overflow-hidden px-5 py-2"
+>
+  <span class="d-flex flex-column align-items-center gap-3">
+    <span class="fs-3 rounded-5 badge bg-light text-dark">{{
+      firstTeam.name
+    }}</span>
+    @for (item of firstTeam.pokemon; track $index) {
+    <p-avatar
+      [imgUrl]="item.image"
+      [isActive]="$index >= firstPlayer"
+      [isInCombat]="$index === firstPlayer"
+    />
+    }
+  </span>
+  <div
+    class="d-flex flex-column flex-lg-row justify-content-center align-items-center flex-wrap flex-grow-1 overflow-hidden px-4"
+  >
+    <div class="overflow-hidden ratio-1 pokemon-card-container">
+      <p-pokemon-card
+        [pokemon]="firstTeam.pokemon![firstPlayer]"
+        [playerHealth]="firstPlayerHp"
+      />
+    </div>
+    <div class="vs-img overflow-hidden">
+      <img class="w-100 overflow-hidden" src="/vs.png" />
+    </div>
+    <div class="overflow-hidden ratio-1 pokemon-card-container">
+      <p-pokemon-card
+        [pokemon]="secondTeam.pokemon![secondPlayer]"
+        [playerHealth]="secondPlayerHp"
+      />
+    </div>
+  </div>
+  <span class="d-flex flex-column align-items-center gap-3">
+    <span class="fs-3 rounded-5 badge bg-light text-dark">{{
+      secondTeam.name
+    }}</span>
+    @for (item of secondTeam.pokemon; track $index) {
+    <p-avatar
+      [imgUrl]="item.image"
+      [isActive]="$index >= secondPlayer"
+      [isInCombat]="$index === secondPlayer"
+    />
+    }
+  </span>
+</div>
+<div class="d-flex justify-content-center p-5">
+  <button
+    class="btn btn-primary fs-3 px-4 rounded-4"
+    (click)="handleRoundOutcome()"
+  >
+    Fight
+  </button>
+</div>

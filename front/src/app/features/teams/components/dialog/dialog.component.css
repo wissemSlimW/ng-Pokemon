@@ -1,0 +1,25 @@
+.dialog {
+  width: min(90vw, 500px);
+}
+
+.iconContainer {
+  height: 400px;
+}
+
+.icon {
+  width: 100px;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+.select {
+  border-color: deepskyblue !important;
+}
+.selectImage {
+  width: 15%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  cursor: pointer;
+}
+.image {
+  object-position: center;
+}

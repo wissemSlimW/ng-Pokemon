@@ -1,0 +1,27 @@
+<div></div>
+<div class="d-flex gap-3 p-3 justify-content-center flex-wrap">
+  <p-add-card (clickEmitter)="openFormDialog($event)" />
+  @for (item of pokemon; track $index) {
+  <p-card
+    [pokemon]="item"
+    [type]="getType(item.type)"
+    (deleteEmitter)="openDeleteDialog($event)"
+    (updateEmitter)="openFormDialog($event)"
+  />
+  }
+</div>
+<dialog #pokemonDialog class="rounded-4 border border-none p-4">
+  <p-dialog
+    (confirmAddEmitter)="manageItem($event)"
+    (closeEmitter)="closeFormDialog()"
+    [pokemonTypes]="pokemonTypes"
+    [pokemon]="formData"
+  />
+</dialog>
+<dialog #deleteDialog class="rounded-4 border-light p-4">
+  <p-delete-dialog
+    [text]="deleteItem?.name || ''"
+    (closeEmitter)="closeDeleteDialog()"
+    (confirmDeleteEmitter)="removeItem()"
+  />
+</dialog>
